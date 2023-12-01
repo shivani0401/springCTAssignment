@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded",function(event){
+            var storedColor = localStorage.getItem("selectedColor");
+            if (storedColor) {
+                document.body.style.backgroundColor = storedColor;
+            }
+            var blocks = document.getElementsByClassName("block");
+            for (var i = 0; i < blocks.length; i++) {
+                blocks[i].addEventListener('click', function() {
+                    var color = this.style.backgroundColor;
+                    document.body.style.backgroundColor = color;
+                    localStorage.setItem("selectedColor",color);
+                })
+            }
+        })
+    </script>
+</head>
+<body>
+    <div id="block1" class="block" style="background-color: aqua;"></div>
+    <div id="block2" class="block" style="background-color: palevioletred;"></div>
+    <div id="block3" class="block" style="background-color: peru;"></div>
+    <div id="block4" class="block" style="background-color: pink;"></div>
+    <div id="block5" class="block" style="background-color: powderblue;"></div>
+    <div id="block6" class="block" style="background-color: yellowgreen;"></div>
+</body>
+</html>
